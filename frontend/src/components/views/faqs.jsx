@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState } from 'react';
 
 function AccordionItem({
   id,
@@ -9,15 +9,23 @@ function AccordionItem({
   noLast,
 }) {
   return (
-    <div 
-    className={`${ id != 4 ? "border-b-[0.5px] border-[#747474aa]" : "border-b-0 md:border-b-[0.5px] border-[#747474aa]" }`}>
-      <h2 id={`accordion-flush-heading-${id}`} className="font-[RobotoMono] ps-[8px] md:ps-0 pr-[14px] md:pr-0 py-[14px]">
+    <div
+      className={`${
+        id != 4
+          ? 'border-b-[0.5px] border-[#747474aa]'
+          : 'border-b-0 md:border-b-[0.5px] border-[#747474aa]'
+      }`}
+    >
+      <h2
+        id={`accordion-flush-heading-${id}`}
+        className="font-[RobotoMono] ps-[8px] md:ps-0 pr-[14px] md:pr-0 py-[14px]"
+      >
         <button
           type="button"
           className={
             noLast
-              ? "flex justify-between items-center w-full text-white font-[RobotoMono] text-[16px] md:text-[18px]"
-              : "flex justify-between items-center w-full text-white font-[RobotoMono] text-[16px] md:text-[18px] "
+              ? 'flex justify-between items-center w-full text-white font-[RobotoMono] text-[16px] md:text-[18px]'
+              : 'flex justify-between items-center w-full text-white font-[RobotoMono] text-[16px] md:text-[18px] '
           }
           data-accordion-target={`#accordion-flush-body-${id}`}
           aria-expanded={isActive}
@@ -25,22 +33,20 @@ function AccordionItem({
           onClick={() => toggleActive(id)}
         >
           <span className="ml-[3px] text-left">{title}</span>
-          <img id={`accordion-icon-${id}`} src="./assets/images/icon/plus.png" 
+          <img
+            id={`accordion-icon-${id}`}
+            src="./assets/images/icon/plus.png"
             className={
               isActive
-                ? "h-[25px] w-[25px] duration-500 -rotate-[135deg]"
-                : "h-[25px] w-[25px] duration-500 group-focus:-rotate-[135deg]"
+                ? 'h-[25px] w-[25px] duration-500 -rotate-[135deg]'
+                : 'h-[25px] w-[25px] duration-500 group-focus:-rotate-[135deg]'
             }
           />
         </button>
       </h2>
       <div
         id={`accordion-flush-body-${id}`}
-        className={
-          isActive
-            ? "bg-top font-[RobotoMono]"
-            : "hidden"
-        }
+        className={isActive ? 'bg-top font-[RobotoMono]' : 'hidden'}
         aria-labelledby={`accordion-flush-heading-${id}`}
       >
         <div className="items-center transition-all duration-1000">
@@ -56,30 +62,31 @@ function AccordionItem({
 const CONTENTS = [
   {
     id: 1,
-    title: "How does the NYX Cipher work?",
+    title: 'How does the NYX Cipher work?',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco nisi ut aliquip ex eacommodo consequat.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco nisi ut aliquip ex eacommodo consequat.',
     noLast: false,
   },
   {
     id: 2,
-    title: "What are the benefits of joining the NYX Cipher?",
+    title: 'What are the benefits of joining the NYX Cipher?',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco nisi ut aliquip ex eacommodo consequat.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco nisi ut aliquip ex eacommodo consequat.',
     noLast: false,
   },
   {
     id: 3,
-    title: "Who is eligible to become a NYX Cipher User? How will I know if I’ve bee accepted?",
+    title:
+      'Who is eligible to become a NYX Cipher User? How will I know if I’ve bee accepted?',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco nisi ut aliquip ex eacommodo consequat.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco nisi ut aliquip ex eacommodo consequat.',
     noLast: false,
   },
   {
     id: 4,
-    title: "Does it cots anything to be a NYX Cipher client?",
+    title: 'Does it cots anything to be a NYX Cipher client?',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco nisi ut aliquip ex eacommodo consequat.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco nisi ut aliquip ex eacommodo consequat.',
     noLast: true,
   },
 ];
@@ -108,25 +115,23 @@ const Faqs = () => {
               s
             </font>
           </h1>
-          
 
           {CONTENTS.map((content, index) => {
-              return (
-                <AccordionItem
-                  key={content.id}
-                  id={content.id}
-                  title={content.title}
-                  description={content.description}
-                  isActive={activeItem === content.id}
-                  toggleActive={toggleActive}
-                  noLast={content.noLast}
-                />
-              );
-            })}
-
+            return (
+              <AccordionItem
+                key={content.id}
+                id={content.id}
+                title={content.title}
+                description={content.description}
+                isActive={activeItem === content.id}
+                toggleActive={toggleActive}
+                noLast={content.noLast}
+              />
+            );
+          })}
         </div>
 
-        <div className="nyxNo  absolute left-0 bottom-0 xl:visible lg:invisible invisible flex items-center border-b-0 border-l-0">
+        {/* <div className="nyxNo  absolute left-0 bottom-0 xl:visible lg:invisible invisible flex items-center border-b-0 border-l-0">
           <span className="m-auto">
             <svg
               width="69"
@@ -141,7 +146,7 @@ const Faqs = () => {
               />
             </svg>
           </span>
-        </div>
+        </div> */}
         <div className="nyxNo  absolute right-0 top-0 xl:invisible border-t-0 border-e-0">
           <svg
             className="mx-[15%] my-[11%] lg:my-[13%] w-[70%] h-[70%] lg:h-[48px]"

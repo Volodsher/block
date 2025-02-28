@@ -29,6 +29,7 @@ router.get('/convert', (req, res) => {
           }
 
           const rate = json.conversion_rates[to.toUpperCase()];
+          const allRates = json.conversion_rates;
           const convertedAmount = (parseFloat(amount) * rate).toFixed(2);
 
           res.json({
@@ -37,6 +38,7 @@ router.get('/convert', (req, res) => {
             amount: parseFloat(amount),
             convertedAmount,
             rate,
+            allRates,
           });
         } catch (error) {
           res
